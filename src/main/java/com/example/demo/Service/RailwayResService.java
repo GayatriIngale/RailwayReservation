@@ -14,4 +14,5 @@ public interface RailwayResService {
 	List<RailwayRes> displayByStartFrom(String startfrom);
 	void deleteReservationByToDestination(String to_destination);
 	List<RailwayRes> displayAllReservationSortedByPriceAscendingOrder();
+	int updatePartialRecord(int price,String startfrom,int id);
 }

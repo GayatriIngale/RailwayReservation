@@ -67,4 +67,10 @@ public class RailwayResServiceImpl  implements RailwayResService{
 		return resRepository.displayAllResrvationSortByPrice();
 	}
 
+
+	@Override
+	public int updatePartialRecord(int price, String startfrom, int id) {
+		 return resRepository.partialRecordUpdate(price, startfrom, id);
+	}
+
 }

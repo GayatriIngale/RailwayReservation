@@ -1,10 +1,13 @@
 package com.example.demo.Controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -53,7 +56,6 @@ public class RailwayResController {
 		 resService.deleteReservationById(id);
 	}
 	
-	//@RequestMapping(value = "/startfrom/{startfrom}", method = RequestMethod.GET)
 	@GetMapping("/startfrom/{startfrom}")
    List<RailwayRes> displayReservationBySartFrom(@PathVariable String startfrom){
 	return resService.displayByStartFrom(startfrom);
@@ -69,5 +71,12 @@ public class RailwayResController {
 		return resService.displayAllReservationSortedByPriceAscendingOrder();
 		
 	}
+	
+	@PatchMapping("RailwayRes/update/{price}/{startfrom}/{id}")
+	int updatePartialRecord(@PathVariable int price,@PathVariable String startfrom,@PathVariable int id) {
+		return resService.updatePartialRecord(price, startfrom, id);
+	}
+	
+	
 	
 }
